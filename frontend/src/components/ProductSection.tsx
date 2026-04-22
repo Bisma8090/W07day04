@@ -129,7 +129,7 @@ export default function ProductSection({
             {products.map((product, idx) => (
               <Box
                 key={product.id}
-                sx={{ flex: '0 0 68vw', minWidth: '68vw' }}
+                sx={{ flex: '0 0 85vw', minWidth: '85vw' }}
               >
                 <ProductCard
                   product={product}

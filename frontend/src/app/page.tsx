@@ -74,7 +74,7 @@ export default function HomePage() {
           <Box
             sx={{
               textAlign: 'center',
-              py: { xs: 3, md: 3 },
+              py: { xs: 5, md: 8 },
               px: 2,
               borderBottom: '1px solid #f0f0f0',
             }}
@@ -84,12 +84,12 @@ export default function HomePage() {
                 fontFamily: 'Montserrat, sans-serif',
                 fontWeight: 400,
                 fontStyle: 'normal',
-                fontSize: { xs: '0.75rem', md: '2.5rem' },
+                fontSize: { xs: '0.6rem', md: '1.5rem' },
                 lineHeight: 1,
                 letterSpacing: '0.1em',
-                color: '#999',
+                color: '#292929ff',
                 display: 'block',
-                mb: 0.5,
+                mb: 1.4,
                 textTransform: 'uppercase',
               }}
             >
@@ -100,10 +100,10 @@ export default function HomePage() {
                 fontFamily: 'Montserrat',
                 fontWeight: 900,
                 fontStyle: 'italic',
-                fontSize: { xs: '2rem', md: '5rem' },
+                fontSize: { xs: '1.5rem', md: '3rem' },
                 lineHeight: 1,
                 letterSpacing: '0%',
-                mb: 0.5,
+                mb:1.4,
                 textTransform: 'uppercase',
               }}
             >
@@ -114,10 +114,10 @@ export default function HomePage() {
                 fontFamily: 'Montserrat',
                 fontWeight: 400,
                 fontStyle: 'normal',
-                fontSize: { xs: '0.8rem', md: '2.5rem' },
+                fontSize: { xs: '0.65rem', md: '1.5rem' },
                 lineHeight: 1,
                 letterSpacing: '0%',
-                color: '#666',
+                color: '#262626ff',
               }}
             >
               Fight the heat in a sunny look!

@@ -79,77 +79,73 @@ export default function Navbar({ onSearch }: NavbarProps) {
               height: '79px',
               minHeight: '79px !important',
               px: { xs: 2, md: 4 },
+              display: 'flex',
+              alignItems: 'center',
             }}
           >
-            <IconButton
-              sx={{
-                display: { xs: 'flex', md: 'none' },
-                position: 'absolute',
-                left: 16,
-              }}
-              onClick={() => setDrawerOpen(true)}
-            >
-              <MenuIcon />
-            </IconButton>
+            {/* LEFT: hamburger (mobile) or nav links (desktop) */}
+            <Box sx={{ display: 'flex', alignItems: 'center', flex: { xs: 1, md: 'unset' } }}>
+              <IconButton
+                sx={{ display: { xs: 'flex', md: 'none' }, p: 0 }}
+                onClick={() => setDrawerOpen(true)}
+              >
+                <MenuIcon />
+              </IconButton>
 
-            <Box
-              sx={{
-                display: { xs: 'none', md: 'flex' },
-                alignItems: 'center',
-                gap: { md: 4, lg: '50px' },
-                ml: { md: 2, lg: 4 },
-              }}
-            >
-              {navItems.map((item) => (
-                <Box
-                  key={item.label}
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    cursor: 'pointer',
-                    height: '22px',
-                  }}
-                >
-                  <Typography
-                    sx={{
-                      fontFamily: 'Montserrat, sans-serif',
-                      fontWeight: item.fontWeight,
-                      fontSize: '18px',
-                      lineHeight: '100%',
-                      textAlign: 'center',
-                      color: '#000',
-                      borderBottom:
-                        item.label === 'ALL'
-                          ? '2px solid black'
-                          : 'none',
-                      pb: '4px',
-                      '&:hover': { color: '#666' },
-                    }}
+              <Box
+                sx={{
+                  display: { xs: 'none', md: 'flex' },
+                  alignItems: 'center',
+                  gap: { md: 4, lg: '50px' },
+                  ml: { md: 2, lg: 4 },
+                }}
+              >
+                {navItems.map((item) => (
+                  <Box
+                    key={item.label}
+                    sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer', height: '22px' }}
                   >
-                    {item.label}
-                  </Typography>
-                </Box>
-              ))}
+                    <Typography
+                      sx={{
+                        fontFamily: 'Montserrat, sans-serif',
+                        fontWeight: item.fontWeight,
+                        fontSize: '18px',
+                        lineHeight: '100%',
+                        textAlign: 'center',
+                        color: '#000',
+                        borderBottom: item.label === 'ALL' ? '2px solid black' : 'none',
+                        pb: '4px',
+                        '&:hover': { color: '#666' },
+                      }}
+                    >
+                      {item.label}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
             </Box>
 
+            {/* CENTER: Logo (absolute on desktop, flex-center on mobile) */}
             <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
               <Box
                 sx={{
-                  position: 'absolute',
-                  top: '20px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
+                  position: { xs: 'static', md: 'absolute' },
+                  top: { md: '20px' },
+                  left: { md: '50%' },
+                  transform: { md: 'translateX(-50%)' },
                   display: 'flex',
                   alignItems: 'center',
                   whiteSpace: 'nowrap',
+                  // on mobile: centered via flex parent
+                  flex: { xs: 2, md: 'unset' },
+                  justifyContent: { xs: 'center', md: 'unset' },
                 }}
               >
                 <Typography
                   sx={{
                     fontFamily: 'Montserrat, sans-serif',
                     fontWeight: 400,
-                    fontSize: '32px',
+                    fontSize: { xs: '22px', md: '32px' },
                     letterSpacing: '0.1em',
                     color: '#999',
                   }}
@@ -160,7 +156,7 @@ export default function Navbar({ onSearch }: NavbarProps) {
                   sx={{
                     fontFamily: 'Montserrat, sans-serif',
                     fontWeight: 900,
-                    fontSize: '32px',
+                    fontSize: { xs: '22px', md: '32px' },
                     letterSpacing: '0.1em',
                     ml: 0.5,
                     color: '#000',
@@ -171,23 +167,26 @@ export default function Navbar({ onSearch }: NavbarProps) {
               </Box>
             </Link>
 
+            {/* RIGHT: icons */}
             <Box
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                gap: { xs: 2, md: '50px' },
+                gap: { xs: 1.5, md: '50px' },
                 ml: 'auto',
+                flex: { xs: 1, md: 'unset' },
+                justifyContent: { xs: 'flex-end', md: 'unset' },
               }}
             >
-              {/* Person Icon */}
+              {/* Person Icon - desktop only */}
               <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
                 <IconButton sx={{ p: 0 }}>
                   <Image src="/icon-user.png" alt="user" width={24} height={24} />
                 </IconButton>
               </Box>
 
-              {/* Search Icon */}
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              {/* Search Icon - desktop only */}
+              <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
                 <IconButton onClick={handleSearchToggle} sx={{ p: 0 }}>
                   {searchOpen ? <CloseIcon /> : <Image src="/icon-search.png" alt="search" width={24} height={24} />}
                 </IconButton>

@@ -72,6 +72,8 @@ export default function MembershipBanner() {
               lineHeight: '100%',
               letterSpacing: 0,
               color: '#fff',
+              mb: 2.5,
+
             }}
           >
             Your Nike <br /> Membership
@@ -95,16 +97,16 @@ export default function MembershipBanner() {
           <Button
             variant="contained"
             sx={{
-              bgcolor: '#000',
-              color: '#fff',
+              bgcolor: '#f6f3f3ff',
+              color: '#3e3d3dff',
               borderRadius: 4,
               fontSize: { xs: '0.65rem', md: '0.75rem' },
-              fontWeight: 600,
+              fontWeight: 500,
               px: { xs: 3, md: 5 },
               py: 0.9,
               letterSpacing: '0.05em',
               '&:hover': {
-                bgcolor: '#222',
+                bgcolor: '#f5f1f1ff',
               },
             }}
           >
